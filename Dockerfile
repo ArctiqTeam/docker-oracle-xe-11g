@@ -5,6 +5,8 @@ MAINTAINER Wei-Ming Wu <wnameless@gmail.com>
 ADD assets /assets
 RUN /assets/setup.sh
 
+ENV ORACLE_ALLOW_REMOTE=true
+
 EXPOSE 22
 EXPOSE 1521
 EXPOSE 8080

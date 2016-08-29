@@ -35,9 +35,11 @@ spec:
     spec:
       containers:
       - env:
+        - name: ORACLE_SID
+          value: XE
         - name: ORACLE_ALLOW_REMOTE
           value: "true"
-        image: 192.168.173.195:5000/cpr-pilot/oracle@sha256:e4e52c567030253f9d22162c3a2ea0709b62501dfe074ee632aa334b672d3f83
+        image: sterburg/docker-oracle-xe-11g:latest
         imagePullPolicy: Always
         name: oracle
         ports:
@@ -60,12 +62,4 @@ spec:
   test: false
   triggers:
   - type: ConfigChange
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - oracle
-      from:
-        kind: ImageStreamTag
-        name: oracle:latest
-    type: ImageChange
 status: {}
